@@ -1,0 +1,13 @@
+<h2>Мої звички</h2>
+
+@if (habits().length === 0) {
+  <p>Звичок поки немає</p>
+}
+
+@for (habit of habits(); track habit.id) {
+  <div class="habit-card">
+    <h3>{{ habit.title }}</h3>
+    <p>{{ habit.description }}</p>
+    <small>Створено: {{ habit.createdAt }}</small>
+  </div>
+}
