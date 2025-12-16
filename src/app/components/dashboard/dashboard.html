@@ -1,7 +1,22 @@
 <h2>Dashboard</h2>
 
-<ul>
-  <li>Кількість звичок: {{ total() }}</li>
-  <li>Перша створена: {{ firstDate() }}</li>
-  <li>Остання створена: {{ lastDate() }}</li>
-</ul>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-title">Кількість звичок</div>
+    <div class="stat-value">{{ total() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Перша створена</div>
+    <div class="stat-value">
+      {{ firstDate() }}
+    </div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Остання створена</div>
+    <div class="stat-value">
+      {{ lastDate() }}
+    </div>
+  </div>
+</div>

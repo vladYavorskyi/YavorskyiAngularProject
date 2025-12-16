@@ -1,0 +1,25 @@
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  flex: 1;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.stat-title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: bold;
+}

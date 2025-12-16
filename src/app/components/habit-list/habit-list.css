@@ -1,0 +1,16 @@
+.habit {
+  background: #fff;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.habit-title {
+  font-weight: bold;
+}
+
+.habit-meta {
+  font-size: 12px;
+  color: #666;
+}

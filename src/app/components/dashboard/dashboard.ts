@@ -4,7 +4,8 @@ import { HabitService } from '../../services/habit';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  templateUrl: './dashboard.html'
+  templateUrl: './dashboard.html',
+  styleUrls: ['./dashboard.css']
 })
 export class DashboardComponent {
   private habitService = inject(HabitService);
@@ -14,9 +15,7 @@ export class DashboardComponent {
   total = computed(() => this.habits().length);
 
   firstDate = computed(() =>
-    this.habits().length
-      ? this.habits()[0].createdAt
-      : '—'
+    this.habits().length ? this.habits()[0].createdAt : '—'
   );
 
   lastDate = computed(() =>
