@@ -1,5 +1,6 @@
 import { Component, inject, computed } from '@angular/core';
 import { HabitService } from '../../services/habit';
+import { formatDate } from '../../utils/date.util';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +15,26 @@ export class DashboardComponent {
 
   total = computed(() => this.habits().length);
 
-  firstDate = computed(() =>
-    this.habits().length ? this.habits()[0].createdAt : '—'
+  firstDate = computed(() => {
+    const habits = this.habits();
+    return habits.length ? formatDate(habits[0].createdAt) : '—';
+  });
+
+  lastDate = computed(() => {
+    const habits = this.habits();
+    return habits.length
+      ? formatDate(habits[habits.length - 1].createdAt)
+      : '—';
+  });
+
+  completedCount = computed(() =>
+    this.habits().filter(h => h.completed).length
   );
 
-  lastDate = computed(() =>
-    this.habits().length
-      ? this.habits()[this.habits().length - 1].createdAt
-      : '—'
-  );
+  progressPercent = computed(() => {
+    const total = this.habits().length;
+    return total === 0
+      ? 0
+      : Math.round((this.completedCount() / total) * 100);
+  });
 }

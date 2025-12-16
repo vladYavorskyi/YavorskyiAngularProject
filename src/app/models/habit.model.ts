@@ -3,4 +3,5 @@ export interface Habit {
   title: string;
   description: string;
   createdAt: string;
+  completed: boolean;
 }

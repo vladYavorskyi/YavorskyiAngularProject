@@ -8,15 +8,23 @@
 
   <div class="stat">
     <div class="stat-title">Перша створена</div>
-    <div class="stat-value">
-      {{ firstDate() }}
-    </div>
+    <div class="stat-value">{{ firstDate() }}</div>
   </div>
 
   <div class="stat">
     <div class="stat-title">Остання створена</div>
-    <div class="stat-value">
-      {{ lastDate() }}
+    <div class="stat-value">{{ lastDate() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Прогрес</div>
+    <div class="progress">
+      <div
+        class="progress-fill"
+        [style.width.%]="progressPercent()"
+      >
+        {{ progressPercent() }}%
+      </div>
     </div>
   </div>
 </div>

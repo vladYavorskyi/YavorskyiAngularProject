@@ -1,19 +1,24 @@
 <h2>Нова звичка</h2>
 
-<div>
-  <input
-    placeholder="Назва звички"
-    [value]="title()"
-    (input)="title.set($any($event.target).value)"
-  />
-</div>
+<div class="form-card">
+  <div class="form-group">
+    <label>Назва звички</label>
+    <input
+      type="text"
+      placeholder="Наприклад: Пити воду"
+      [value]="title()"
+      (input)="title.set($any($event.target).value)"
+    />
+  </div>
 
-<div>
-  <textarea
-    placeholder="Опис"
-    [value]="description()"
-    (input)="description.set($any($event.target).value)"
-  ></textarea>
-</div>
+  <div class="form-group">
+    <label>Опис</label>
+    <textarea
+      placeholder="Короткий опис звички"
+      [value]="description()"
+      (input)="description.set($any($event.target).value)"
+    ></textarea>
+  </div>
 
-<button (click)="save()">Зберегти</button>
+  <button class="primary" (click)="save()">Зберегти</button>
+</div>

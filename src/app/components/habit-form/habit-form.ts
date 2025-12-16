@@ -21,7 +21,8 @@ export class HabitFormComponent {
       id: Date.now(),
       title: this.title(),
       description: this.description(),
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      completed: false
     });
 
     this.router.navigateByUrl('/');

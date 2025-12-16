@@ -19,12 +19,21 @@ export class HabitService {
   }
 
   add(habit: Habit) {
-    this.save([...this.habits(), habit]);
+    this.save([
+      ...this.habits(),
+      { ...habit, completed: habit.completed ?? false }
+    ]);
   }
 
   remove(id: number) {
-  this.save(this.habits().filter(h => h.id !== id));
+    this.save(this.habits().filter(h => h.id !== id));
   }
 
+  toggle(id: number) {
+    const updated = this.habits().map(h =>
+      h.id === id ? { ...h, completed: !h.completed } : h
+    );
 
+    this.save(updated);
+  }
 }

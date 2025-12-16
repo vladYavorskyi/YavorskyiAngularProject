@@ -1,14 +1,31 @@
 <h2>Мої звички</h2>
 
 @if (habits().length === 0) {
-  <p>Звичок поки немає</p>
+  <p class="empty">Звичок поки немає</p>
 }
 
 @for (habit of habits(); track habit.id) {
-  <div>
-    <h3>{{ habit.title }}</h3>
-    <p>{{ habit.description }}</p>
-    <small>{{ habit.createdAt }}</small>
-    <button (click)="remove(habit.id)">Видалити</button>
+  <div class="habit-card" [class.completed]="habit.completed">
+    <div class="habit-header">
+      <h3>{{ habit.title }}</h3>
+      <small>{{ formatDate(habit.createdAt) }}</small>
+    </div>
+
+    <p class="habit-desc">{{ habit.description }}</p>
+
+    <div class="habit-actions">
+      <label class="checkbox">
+        <input
+          type="checkbox"
+          [checked]="habit.completed"
+          (change)="toggle(habit.id)"
+        />
+        Виконано
+      </label>
+
+      <button class="danger" (click)="remove(habit.id)">
+        Видалити
+      </button>
+    </div>
   </div>
 }
