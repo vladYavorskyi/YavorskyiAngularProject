@@ -5,9 +5,10 @@
 }
 
 @for (habit of habits(); track habit.id) {
-  <div class="habit-card">
+  <div>
     <h3>{{ habit.title }}</h3>
     <p>{{ habit.description }}</p>
-    <small>Створено: {{ habit.createdAt }}</small>
+    <small>{{ habit.createdAt }}</small>
+    <button (click)="remove(habit.id)">Видалити</button>
   </div>
 }

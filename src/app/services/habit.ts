@@ -21,4 +21,10 @@ export class HabitService {
   add(habit: Habit) {
     this.save([...this.habits(), habit]);
   }
+
+  remove(id: number) {
+  this.save(this.habits().filter(h => h.id !== id));
+  }
+
+
 }

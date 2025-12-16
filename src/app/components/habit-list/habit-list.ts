@@ -10,4 +10,8 @@ export class HabitListComponent {
   private habitService = inject(HabitService);
 
   habits = this.habitService.habits;
+
+  remove(id: number) {
+    this.habitService.remove(id);
+  }
 }
