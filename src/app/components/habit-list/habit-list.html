@@ -1,31 +1,50 @@
 <h2>Мої звички</h2>
 
-@if (habits().length === 0) {
-  <p class="empty">Звичок поки немає</p>
+<div class="controls">
+  <div class="control">
+    <label>Фільтр</label>
+    <select (change)="filter.set($any($event.target).value)">
+      <option value="all">Всі</option>
+      <option value="completed">Виконані</option>
+      <option value="active">Невиконані</option>
+    </select>
+  </div>
+
+  <div class="control">
+    <label>Сортування</label>
+    <select (change)="sort.set($any($event.target).value)">
+      <option value="newest">Нові → старі</option>
+      <option value="oldest">Старі → нові</option>
+      <option value="title">За назвою</option>
+    </select>
+  </div>
+</div>
+
+
+@if (filteredHabits().length === 0) {
+  <p>Звичок немає</p>
 }
 
-@for (habit of habits(); track habit.id) {
+@for (habit of filteredHabits(); track habit.id) {
   <div class="habit-card" [class.completed]="habit.completed">
     <div class="habit-header">
       <h3>{{ habit.title }}</h3>
       <small>{{ formatDate(habit.createdAt) }}</small>
     </div>
 
-    <p class="habit-desc">{{ habit.description }}</p>
+    <p>{{ habit.description }}</p>
 
-    <div class="habit-actions">
-      <label class="checkbox">
-        <input
-          type="checkbox"
-          [checked]="habit.completed"
-          (change)="toggle(habit.id)"
-        />
-        Виконано
-      </label>
+    <label>
+      <input
+        type="checkbox"
+        [checked]="habit.completed"
+        (change)="toggle(habit.id)"
+      />
+      Виконано
+    </label>
 
-      <button class="danger" (click)="remove(habit.id)">
-        Видалити
-      </button>
-    </div>
+    <button class="delete" (click)="remove(habit.id)">
+      Видалити
+    </button>
   </div>
 }

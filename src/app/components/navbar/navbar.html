@@ -1,6 +1,13 @@
-<nav>
-  <a routerLink="/">Звички</a> |
-  <a routerLink="/add">Додати</a> |
-  <a routerLink="/dashboard">Dashboard</a>
+<nav class="navbar">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    Звички
+  </a>
+
+  <a routerLink="/add" routerLinkActive="active">
+    Додати
+  </a>
+
+  <a routerLink="/dashboard" routerLinkActive="active">
+    Dashboard
+  </a>
 </nav>
-<hr />

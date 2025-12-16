@@ -1,15 +1,31 @@
-nav {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 10px 16px;
+.navbar {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-nav a {
-  margin-right: 12px;
+.navbar a {
+  padding: 6px 14px;
+  border-radius: 8px;
+
   text-decoration: none;
-  color: #007acc;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #2563eb;
+  background: transparent;
+
+  transition: background-color 0.2s, color 0.2s;
 }
 
-nav a.active {
-  font-weight: bold;
+.navbar a:hover {
+  background-color: #eff6ff;
+}
+
+.navbar a.active {
+  background-color: #2563eb;
+  color: #ffffff;
 }
